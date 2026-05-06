@@ -5,8 +5,8 @@
 ### Shift: 4:30 - 23:00
 
 ### **Summary**
-Shift 2 fouced on the dynamic detonatino of the `SillyPutty` sample within the isolated FLARE-VM sandbox.
-The objective was to confirm the behavors formulated during Day 1 static triage. Telemetry was successfully capture in aplunk Enterprise and FakeNet-NG, identifying a multi-stage execution chaing and a remote C2 callback.
+Shift 2 fouced on the dynamic detonation of the `SillyPuTTy` sample within the isolated FLARE-VM sandbox.
+The objective was to confirm the behaviors formulated during Day 1 static triage. Telemetry was successfully capture in Splunk and FakeNet-NG, identifying a multi-stage execution chaing and a remote C2 callback.
 
 **Host-Based Indicators**
 
