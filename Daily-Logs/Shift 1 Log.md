@@ -12,7 +12,7 @@
    - I notice I have installed the most-recent updated version of Eventgen which was not compatiable with the free license Splunk Interface.
    - I was not able to upload any training data that can be utilized for the training course.
      
-   **Resolution**
+   **Solution**
    - I have to download the 7.2.1 version that is compatiable with the free splunk interface for training purposes.
 
 ![alt text](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/b73f6075e4928a6bd4ace0829a9a9458b6836287/Daily-Logs/Shift%20Review/1.%20Eventgen.png)
@@ -27,7 +27,7 @@
 
 ![alt text](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/b73f6075e4928a6bd4ace0829a9a9458b6836287/Daily-Logs/Shift%20Review/2.%20xmlkv.png)
 
-  **Tactical Solution**
+  **Solution**
 
   - **Custom Regex Implementation**
     - I has to develope and deploy custom `rex` (Regualr Expression) extractions on my FLARE-VM to bypass the XML parser to properly conduct Malware Analysis.
