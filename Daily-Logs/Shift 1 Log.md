@@ -41,7 +41,7 @@
     - Also created a snapshot of the FLARE-VM before proceeding with Malware detonations.
 
   **Verbos Mode Validation**
-  - Confirmed that the custom extractions require "Verbos Mode" to render high-fidelity process and network data in the Search HEad.
+  - Confirmed that the custom extractions require "Verbos Mode" to render high-fidelity process and network data in the Search Head.
 
   **Telemetry Chart**
   
