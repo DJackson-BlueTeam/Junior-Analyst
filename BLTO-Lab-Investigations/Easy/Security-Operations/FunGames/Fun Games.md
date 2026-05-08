@@ -37,7 +37,7 @@ Answer: 192.168.8.142
  
  Answer: SQLi
  
-Q4) It seems the attacker used a famous tool to perform the attack.
+**4. It seems the attacker used a famous tool to perform the attack.**
 
 ![alt text](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/4cfd6c2542257be510b7f55ce11a68b445bbbc20/BLTO-Lab-Investigations/Easy/Security-Operations/FunGames/FunGamesImg/4..png)
 
@@ -71,7 +71,7 @@ Answer: mjarovic, Ma77.J@r0v1c-2024
 
 Answer: Exploit
 
-Q7) What is the sha256 hash of the file above?
+**7. What is the sha256 hash of the file above?**
 - Here I exported the file from Wireshark and save it in the ubuntu directory.
 
 ![alt text](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/4cfd6c2542257be510b7f55ce11a68b445bbbc20/BLTO-Lab-Investigations/Easy/Security-Operations/FunGames/FunGamesImg/6.1.png)
