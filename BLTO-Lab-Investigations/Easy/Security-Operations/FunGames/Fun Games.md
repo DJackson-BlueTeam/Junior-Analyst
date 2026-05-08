@@ -90,7 +90,7 @@ Q7) What is the sha256 hash of the file above?
 
 Answer: CVE-2024-1086
 
-9. After obtaining root privileges, it seems that the attacker exfiltrated sensitive data without transferring any files. Provide the string related to this data.
+**9. After obtaining root privileges, it seems that the attacker exfiltrated sensitive data without transferring any files. Provide the string related to this data.**
 
 - This took me a minute to get to.
 - after conducting some research on data exfiltration without a file transfer, I was able to discover that data can be trasnferred through dns "tunneling" and ssh protocol. 
@@ -114,7 +114,8 @@ Answer: j4672616e6b204d696c6c732031323334353637383931323334353637206578702064617
 
 Answer: Frank Mills 1234567891234567 exp date 08/28 cvv 123
 
-11. Provide the Mitre ID of this technique—in regard to the previous question.
+**11. Provide the Mitre ID of this technique—in regard to the previous question.**
+
 - Based on the previous question, I did perform some research in regards to the stealth activity of the adversary and discover a MITRE ATT&CK technique. 
 
 ![alt text](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/4cfd6c2542257be510b7f55ce11a68b445bbbc20/BLTO-Lab-Investigations/Easy/Security-Operations/FunGames/FunGamesImg/7.2.png)
