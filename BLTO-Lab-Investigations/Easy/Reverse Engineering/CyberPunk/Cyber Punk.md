@@ -29,7 +29,8 @@ Answer: `C:\Users\<USER>\AppData\Local\Temp\sparksters_https.exe`
 Answer: `HR Database, Finance Server`
 
 3. What is the bounty on Lady Spark?
-![[2.1.png]]()
+
+![[2.1.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/0e1a967fd882308af8258cc632d762b72c79a92d/BLTO-Lab-Investigations/Easy/Reverse%20Engineering/CyberPunk/CyberPunkImg/2.1.png)
 
 ![[CyberPunk/CyberPunkImg/2.2.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/7f816c0b13d22554aeaeacdf69e0192770b0eab7/BLTO-Lab-Investigations/Easy/Reverse%20Engineering/CyberPunk/CyberPunkImg/2.2.png)
 
@@ -37,13 +38,15 @@ Answer: £6,650,000
 	
 4. What are the cryptographic hash sums (MD5 & SHA256) for “SparkIT.exe”? This will help reduce the chance of misidentification with malware.
 - I ran a Get-FileHash on the executable.
+
 ![[4.1.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/7f816c0b13d22554aeaeacdf69e0192770b0eab7/BLTO-Lab-Investigations/Easy/Reverse%20Engineering/CyberPunk/CyberPunkImg/4.1.png)
 
 Answer: `427831FF0D8445F110C8EC555DF70395, 4FC37B100E8DBDEA27042487DD94E37CF6A79F2182884231EB1E6E6C2D4A1955`
   
 5. The file name for said malware has been altered. Utilizing VirusTotal, what is the TRUE file name for this malware?
   
-![[5..png]]()
+![[5..png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/0e1a967fd882308af8258cc632d762b72c79a92d/BLTO-Lab-Investigations/Easy/Reverse%20Engineering/CyberPunk/CyberPunkImg/5..png)
+
 Answer: `analytics.exe`
 
 6. After running “string.exe” on the file, there seems to be a malicious URL that Lady Spark uses for traffic. What is said URL, defanged with CyberChef?
@@ -73,7 +76,7 @@ Answer: `cmd.exe /c rd c:\ /s /q`
 
 - After having a difficult time looking for the file. I reverted to Procom and filtered for CreateFIle
 
-![[8.2.png]]()
+![[8.2.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/0e1a967fd882308af8258cc632d762b72c79a92d/BLTO-Lab-Investigations/Easy/Reverse%20Engineering/CyberPunk/CyberPunkImg/8.2.png)
 
 9. Looking at the Regshot output, how many keys were added? Hackers can modify this to establish persistence. 
 	Answer: 16
