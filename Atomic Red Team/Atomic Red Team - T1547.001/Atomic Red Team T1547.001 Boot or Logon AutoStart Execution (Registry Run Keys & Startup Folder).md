@@ -11,42 +11,49 @@
 - Event ID 11: File Created 
 
 #### Prerequisites Checking
-- all prerequisites have been verified. 
- ![[1.1.png]]()
-Details Breifing
-- What to look for. 
-![[2.2.png]]()
+- all prerequisites have been verified.
 
-Splunk Table Live View
-- In Splunk, I setup the table statistic chart to look for `ParentImages, Image, ParentCommandLine, CommandLine, Users` and excluded any `splunk.exe` or `splunkd.exe` to reduce noise. 
-![[Atomic Red Team/Atomic Red Team - T1547.001/Atomic Red Team T1547.001 Img/3.3.png]]()
+ ![[1.1.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/e365f1f0febd7d0d857dbddefc8d2ff5be41a2dd/Atomic%20Red%20Team/Atomic%20Red%20Team%20-%20T1547.001/Atomic%20Red%20Team%20T1547.001%20Img/1.1.png)
+
+#### Details Breifing
+- What to look for. 
+![[2.2.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/e365f1f0febd7d0d857dbddefc8d2ff5be41a2dd/Atomic%20Red%20Team/Atomic%20Red%20Team%20-%20T1547.001/Atomic%20Red%20Team%20T1547.001%20Img/2.2.png)
+
+## Splunk Table Live View
+
+- In Splunk, I setup the table statistic chart to look for `ParentImages, Image, ParentCommandLine, CommandLine, Users` and excluded any `splunk.exe` or `splunkd.exe` to reduce noise.
+
+![[Atomic Red Team/Atomic Red Team - T1547.001/Atomic Red Team T1547.001 Img/3.3.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/e365f1f0febd7d0d857dbddefc8d2ff5be41a2dd/Atomic%20Red%20Team/Atomic%20Red%20Team%20-%20T1547.001/Atomic%20Red%20Team%20T1547.001%20Img/3.3.png)
 
 - Right after executing the Persistence Tactic, there was activities generated immediately.
-![[5.5.png]]()
+
+![[5.5.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/e365f1f0febd7d0d857dbddefc8d2ff5be41a2dd/Atomic%20Red%20Team/Atomic%20Red%20Team%20-%20T1547.001/Atomic%20Red%20Team%20T1547.001%20Img/5.5.png)
 
 - There was a `reg.exe` that was created in the `Windows\System32 Directory`.
-- This can be verified going to the path in File Explorer
-![[Atomic Red Team/Atomic Red Team - T1547.001/Atomic Red Team T1547.001 Img/6.png]]()
+- This can be verified going to the path in File Explorer.
 
-- Extending the panel, there were Registry's created; an Registry_Path, and Registry_Value with an `iexplorer.exe` executable that was also created when the `reg.exe` was executed. 
-![[7.png]]()
+![[Atomic Red Team/Atomic Red Team - T1547.001/Atomic Red Team T1547.001 Img/6.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/e365f1f0febd7d0d857dbddefc8d2ff5be41a2dd/Atomic%20Red%20Team/Atomic%20Red%20Team%20-%20T1547.001/Atomic%20Red%20Team%20T1547.001%20Img/6.png)
+
+- Extending the panel, there were Registry's created; an Registry_Path, and Registry_Value with an `iexplorer.exe` executable that was also created when the `reg.exe` was executed.
+
+![[7.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/e365f1f0febd7d0d857dbddefc8d2ff5be41a2dd/Atomic%20Red%20Team/Atomic%20Red%20Team%20-%20T1547.001/Atomic%20Red%20Team%20T1547.001%20Img/7.png)
 
 Procmon
 - By filtering for the events that are associated with reg.exe, I was able to find more details on the activity that occurred within the host.
 
-Kernelbase.DLL
+#### Kernelbase.DLL
 
-![[8.png]]()
+![[8.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/e365f1f0febd7d0d857dbddefc8d2ff5be41a2dd/Atomic%20Red%20Team/Atomic%20Red%20Team%20-%20T1547.001/Atomic%20Red%20Team%20T1547.001%20Img/8.png)
 
 Observing here, we can see that a KernelBase.dll file was created . 
 
-KernelBase.DDL
+**KernelBase.dll**
 - Is the core Windows file that provides the foundational functions for the operating system. 
 - the Reg.exe was able to creat this kernelbase.dll to give itself full access to the operating system.
 
-Reparsing Registry Keys
+#### Reparsing Registry Keys
 
-![[Atomic Red Team/Atomic Red Team - T1547.001/Atomic Red Team T1547.001 Img/9.png]]()
+![[Atomic Red Team/Atomic Red Team - T1547.001/Atomic Red Team T1547.001 Img/9.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/e365f1f0febd7d0d857dbddefc8d2ff5be41a2dd/Atomic%20Red%20Team/Atomic%20Red%20Team%20-%20T1547.001/Atomic%20Red%20Team%20T1547.001%20Img/9.png)
 
 - When a malware reparse a Registry Open Key, the malware is manipulating Windows so when there are any attempts to open a specific registry key, it is redirected to a different location. 
 
