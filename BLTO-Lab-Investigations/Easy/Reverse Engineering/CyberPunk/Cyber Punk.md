@@ -1,4 +1,4 @@
-![[CyberPunk.png]]
+![[CyberPunk.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/74875271f9290902c4858f5ad4db2e936e83e8ef/BLTO-Lab-Investigations/Easy/Reverse%20Engineering/CyberPunk/CyberPunkImg/CyberPunk.png)
 
 
 ### Scenario
@@ -13,46 +13,52 @@
 ##### Investigation
 
 1. Looking at the Intezer File Scan Report, what was the Module Path for the malware in question? 
-	- This requires acessing the documents on the machine.
-	- ![[CyberPunk/CyberPunkImg/1..png]]
-	- ![[CyberPunk/CyberPunkImg/1.1.png]]
-	Answer: `C:\Users\<USER>\AppData\Local\Temp\sparksters_https.exe`
+- This requires acessing the documents on the machine.
+
+![[CyberPunk/CyberPunkImg/1..png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/74875271f9290902c4858f5ad4db2e936e83e8ef/BLTO-Lab-Investigations/Easy/Reverse%20Engineering/CyberPunk/CyberPunkImg/1..png)
+
+![[CyberPunk/CyberPunkImg/1.1.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/74875271f9290902c4858f5ad4db2e936e83e8ef/BLTO-Lab-Investigations/Easy/Reverse%20Engineering/CyberPunk/CyberPunkImg/1.1.png)
+	
+Answer: `C:\Users\<USER>\AppData\Local\Temp\sparksters_https.exe`
 	
 2. Analyzing the CodeRed Breach, what were the affected systems?
-	- This is another document that is on the machine
-	- ![[2.0.png]]
-	Answer: `HR Database, Finance Server`
-3. What is the bounty on Lady Spark?
-- ![[2.1.png]]
+- This is another document that is on the machine
 
-	![[CyberPunk/CyberPunkImg/2.2.png]]
+![[2.0.png]](https://github.com/DJackson-BlueTeam/90-Day-Junior-Analyst-Sprint/blob/74875271f9290902c4858f5ad4db2e936e83e8ef/BLTO-Lab-Investigations/Easy/Reverse%20Engineering/CyberPunk/CyberPunkImg/2.0.png)
+
+Answer: `HR Database, Finance Server`
+
+3. What is the bounty on Lady Spark?
+![[2.1.png]]()
+
+![[CyberPunk/CyberPunkImg/2.2.png]]()
 	Answer: £6,650,000
 	
 4. What are the cryptographic hash sums (MD5 & SHA256) for “SparkIT.exe”? This will help reduce the chance of misidentification with malware.
 	- I ran a Get-FileHash on the executable.
-	- ![[4.1.png]]
+![[4.1.png]]()
 		Answer: `427831FF0D8445F110C8EC555DF70395, 4FC37B100E8DBDEA27042487DD94E37CF6A79F2182884231EB1E6E6C2D4A1955`
 5. The file name for said malware has been altered. Utilizing VirusTotal, what is the TRUE file name for this malware?
-![[5..png]]
+![[5..png]]()
 Answer: `analytics.exe`
 
 6. After running “string.exe” on the file, there seems to be a malicious URL that Lady Spark uses for traffic. What is said URL, defanged with CyberChef?
-	- ![[6.1.png]]
-	- ![[6.2.png]]
-	- ![[6.3.png]]
+![[6.1.png]]()
+![[6.2.png]]()
+![[6.3.png]]()
 	Answer: hxxp[://]www1-google-analytics[.]com:8088/analytics[.]exe
 7. Within the same context of the string.exe output, what command does Lady Spark use to recursively delete files and folders starting at the file system's root?
-![[CyberPunk/CyberPunkImg/7.1.png]]
+![[CyberPunk/CyberPunkImg/7.1.png]]()
 - In the screenshot above, you will see a command right below the `C:\Windows\System32\AnalyticsBackup.bat` path 
 
 	Answer: cmd.exe /c rd c:\ /s /q
 
 8. Run Regshot against the “SparkIT-Installer.exe”. In the “Files Added” section, what was the last file—full path? It seems to be a plain text file with groups of scripts.
 		- I first ran regshot before the execution of the executable and then after the executable. 
-		- ![[CyberPunk/CyberPunkImg/8.1.png]]
+		- ![[CyberPunk/CyberPunkImg/8.1.png]]()
 
 	- After having a difficult time looking for the file. I reverted to Procom and filtered for CreateFIle
-	- ![[8.2.png]]
+	- ![[8.2.png]]()
 9. Looking at the Regshot output, how many keys were added? Hackers can modify this to establish persistence. 
 	Answer: 16
 
@@ -60,9 +66,9 @@ Answer: `analytics.exe`
 	- Answer: 2
 
 11. Let’s use Procmon to examine the processing activity of the malware—unlike Regshot which can’t. Filter the entry for “Process Name” is “SparkIT-Installer”. Turn on “Live Capture” and run the malware via PowerShell. Filter for “Process Create”, what is the full path of the first result?
-	- ![[CyberPunk/CyberPunkImg/11..png]]
+![[CyberPunk/CyberPunkImg/11..png]]()
 	Answer: C:\Windows\SysWOW64\cmd.exe
 12. Staying within Procmon, utilize the Process Tree, what is the process spawned from this path?
-![[CyberPunk/CyberPunkImg/12..png]]
+![[CyberPunk/CyberPunkImg/12..png]]()
 
 Answer: powershell.exe
